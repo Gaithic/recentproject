@@ -1,0 +1,6 @@
+plugin:
+    name: 'netgen.rolesandpermissions::lang.plugin.name'
+    description: 'netgen.rolesandpermissions::lang.plugin.description'
+    author: Netgen
+    icon: oc-icon-adjust
+    homepage: ''

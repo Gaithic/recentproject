@@ -1,0 +1,164 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table netgen_scert_global_settings'
+    - builder_table_create_netgen_scert_global_settings.php
+1.0.3:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings.php
+1.0.4:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_2.php
+1.0.5:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_3.php
+1.0.6:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_4.php
+1.0.7:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_5.php
+1.0.8:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_6.php
+1.0.9:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_7.php
+1.0.10:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_8.php
+1.0.11:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_9.php
+1.0.12:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_10.php
+1.0.13:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_11.php
+1.0.14:
+    - 'Created table netgen_scert_slider'
+    - builder_table_create_netgen_scert_slider.php
+1.0.15:
+    - 'Created table netgen_scert_scholarship'
+    - builder_table_create_netgen_scert_scholarship.php
+1.0.16:
+    - 'Created table netgen_scert_announcements'
+    - builder_table_create_netgen_scert_announcements.php
+1.0.17:
+    - 'Updated table netgen_scert_scholarship'
+    - builder_table_update_netgen_scert_scholarship.php
+1.0.18:
+    - 'Updated table netgen_scert_announcements'
+    - builder_table_update_netgen_scert_announcements.php
+1.0.19:
+    - 'Updated table netgen_scert_announcements'
+    - builder_table_update_netgen_scert_announcements_2.php
+1.0.20:
+    - 'Updated table netgen_scert_announcements'
+    - builder_table_update_netgen_scert_announcements_3.php
+1.0.21:
+    - 'Updated table netgen_scert_announcements'
+    - builder_table_update_netgen_scert_announcements_4.php
+1.0.22:
+    - 'Updated table netgen_scert_announcements'
+    - builder_table_update_netgen_scert_announcements_5.php
+1.0.23:
+    - 'Created table netgen_scert_ntse'
+    - builder_table_create_netgen_scert_ntse.php
+1.0.24:
+    - 'Created table netgen_scert_nmms'
+    - builder_table_create_netgen_scert_nmms.php
+1.0.25:
+    - 'Created table netgen_scert_category'
+    - builder_table_create_netgen_scert_category.php
+1.0.26:
+    - 'Updated table netgen_scert_category'
+    - builder_table_update_netgen_scert_categories.php
+1.0.27:
+    - 'Updated table netgen_scert_ntse'
+    - builder_table_update_netgen_scert_scholarship_announcement.php
+1.0.28:
+    - 'Updated table netgen_scert_scholarship_announcement'
+    - builder_table_update_netgen_scert_scholarship_announcement_2.php
+1.0.29:
+    - 'Drop table netgen_scert_nmms'
+    - builder_table_delete_netgen_scert_nmms.php
+1.0.30:
+    - 'Updated table netgen_scert_scholarship_announcement'
+    - builder_table_update_netgen_scert_scholarship_announcement_3.php
+1.0.31:
+    - 'Updated table netgen_scert_scholarship_announcement'
+    - builder_table_update_netgen_scert_scholarship_announcement_4.php
+1.0.32:
+    - 'Updated table netgen_scert_scholarship_announcement'
+    - builder_table_update_netgen_scert_scholarship_examinations.php
+1.0.33:
+    - 'Updated table netgen_scert_scholarship_examinations'
+    - builder_table_update_netgen_scert_scholarship_examinations_2.php
+1.0.34:
+    - 'Updated table netgen_scert_scholarship_examinations'
+    - builder_table_update_netgen_scert_scholarship_announcements.php
+1.0.35:
+    - 'Updated table netgen_scert_scholarship_announcements'
+    - builder_table_update_netgen_scert_scholarship_examinations_3.php
+1.0.36:
+    - 'Updated table netgen_scert_categories'
+    - builder_table_update_netgen_scert_categories_2.php
+1.0.37:
+    - 'Updated table netgen_scert_slider'
+    - builder_table_update_netgen_scert_slider.php
+1.0.38:
+    - 'Updated table netgen_scert_scholarship_examinations'
+    - builder_table_update_netgen_scert_scholarship_examinations_4.php
+1.0.39:
+    - 'Updated table netgen_scert_announcements'
+    - builder_table_update_netgen_scert_announcements_6.php
+1.0.40:
+    - 'Updated table netgen_scert_scholarship_examinations'
+    - builder_table_update_netgen_scert_scholarship_examinations_5.php
+1.0.41:
+    - 'Updated table netgen_scert_scholarship_examinations'
+    - builder_table_update_netgen_scert_scholarship_examinations_6.php
+1.0.42:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_12.php
+1.0.45:
+    - 'Updated table netgen_scert_global_settings'
+    - builder_table_update_netgen_scert_global_settings_13.php
+1.0.46:
+    - 'Created table netgen_scert_contact_list'
+    - builder_table_create_netgen_scert_contact_list.php
+1.0.47:
+    - 'Updated table netgen_scert_contact_list'
+    - builder_table_update_netgen_scert_contact_list.php
+1.0.48:
+    - 'Updated table netgen_scert_contact_list'
+    - builder_table_update_netgen_scert_contact_list_2.php
+1.0.49:
+    - 'Updated table netgen_scert_contact_list'
+    - builder_table_update_netgen_scert_contact_list_3.php
+1.0.50:
+    - 'Updated table netgen_scert_contact_list'
+    - builder_table_update_netgen_scert_contact_list_4.php
+1.0.51:
+    - 'Drop table netgen_scert_contact_list'
+    - builder_table_delete_netgen_scert_contact_list.php
+1.0.52:
+    - 'Updated table netgen_scert_announcements'
+    - builder_table_update_netgen_scert_announcements_7.php
+1.0.53:
+    - 'Updated table netgen_scert_scholarship'
+    - builder_table_update_netgen_scert_scholarship_2.php
+1.0.54:
+    - 'Updated table netgen_scert_scholarship_examinations'
+    - builder_table_update_netgen_scert_scholarship_examinations_7.php
+1.0.55:
+    - 'Updated table netgen_scert_categories'
+    - builder_table_update_netgen_scert_categories_3.php
+1.0.56:
+    - 'Updated table netgen_scert_categories'
+    - builder_table_update_netgen_scert_examination_types.php
+1.0.57:
+    - 'Updated table netgen_scert_examination_types'
+    - builder_table_update_netgen_scert_categories_4.php

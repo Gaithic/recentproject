@@ -1,0 +1,38 @@
+[viewBag]
+==
+<?php
+use Netgen\Scert\Models\Scholarship;
+
+	function onStart(){
+	$this['scholarships'] = Scholarship::get();
+	}
+?>
+==
+<div class="scholarship">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 my-3">
+				<h2 class="scholarship-text">Scholarship  Program</h2>
+			</div>
+		</div>
+		<div class="row">
+			{% for scholarship in scholarships %}
+				<div class="col-lg-4 mb-2">
+					<div class="text-one">
+						<div class="header-1">
+							<figure class="image-figure">
+								<img src="{{ scholarship.image|media }}" alt="{{ scholarship.title }}" />
+							</figure>
+						</div>
+						<div class="body1">
+							<h5>{{ scholarship.title }}</h5>
+							<p>{{ html_limit(scholarship.description,50)|raw }}
+							</p>
+						</div>
+						<a class="header-buttons" href="/scholarship-program/{{ scholarship.slug }}">Read More</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

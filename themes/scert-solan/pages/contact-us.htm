@@ -1,0 +1,31 @@
+title = "Contact"
+url = "/contact"
+layout = "default"
+is_hidden = 0
+
+[contactform]
+
+[sitecaptcha]
+type = "math"
+showrefresh = "show"
+iconclass = "icon-refresh"
+==
+<!-- start contact form -->
+<section class="Material-contact-section section-dark">
+	<div class="container">
+		<div class="row">
+		{{ configs.contact_us |raw }}
+		{% component 'contactform' %}
+		</div>
+	</div>
+</section>
+
+{% content 'contact-content' %}
+
+{% put scripts %}
+<script>
+    $('#contactUs').on('ajaxSuccess', function() {
+        $('#contactUs').trigger('reset');
+    });
+</script>
+{% endput %}

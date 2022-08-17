@@ -1,0 +1,77 @@
+title = "Scholarship Examination"
+url = "/scholarship-examination/:category"
+layout = "default"
+is_hidden = 0
+==
+<?php
+function onStart(){
+    use Netgen\Scert\Models\Category;
+    $this['category'] = $this->param('category');
+    $this['examinationTypes'] = Category::where('name',$this['category'])->first();
+}
+function onEnd() {
+    $category = $this->param('category');
+    $this->page->title = ($category == "ntse") ? "NTSE" : (($category == "nmms")  ? "NMMS" : "SJMMSE");
+}
+?>
+==
+
+ <div class="card mb-4">
+    <div class="card-body">
+        {% if category == "ntse" %}
+            {{examinationTypes.description|raw}}
+            
+        {% elseif category == "nmms" %}
+            {{examinationTypes.description|raw}}
+
+        {% else %}
+            {{examinationTypes.description|raw}}
+
+        {% endif  %}
+    </div>
+</div>
+
+<div class="container table-responsive">
+    <table class="table ">
+        <thead>
+            <tr>
+                <th width="80%">Title</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <h4 class="category_id" hidden>{{ category_id }}</h4>
+</div>
+
+{% put styles %}
+    <link href="{{ 'assets/css/jquery.dataTables.min.css'|theme }}" rel="stylesheet">
+{% endput %}
+
+{% put scripts %}
+<script src="{{ [
+    'assets/js/jquery.min.js',
+    'assets/js/jquery.dataTables.min.js',
+] |theme }}">
+
+</script>
+
+
+<script type="text/javascript">
+    $(function () {
+        var id= $(".category_id").text();
+        var table = $('.table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "/announcement-examination-list/{{ category }}",
+            columns: [
+                {data: 'title', name: 'title'},
+                {data: 'date', name: 'date'},
+          ]
+        });
+    });
+
+
+</script>
+{% endput %}

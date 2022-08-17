@@ -1,0 +1,6 @@
+plugin:
+    name: 'netgen.register::lang.plugin.name'
+    description: 'netgen.register::lang.plugin.description'
+    author: Netgen
+    icon: oc-icon-adjust
+    homepage: ''

@@ -1,0 +1,38 @@
+plugin:
+    name: 'netgen.scert::lang.plugin.name'
+    description: 'Plugin for homepage modules.'
+    author: Netgen
+    icon: oc-icon-home
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'Scert Solan'
+        url: netgen/scert/globalsetting/update/settings
+        icon: icon-home
+        permissions:
+            - Manage_SCERT
+        sideMenu:
+            side-menu-item:
+                label: 'Global Settings'
+                url: netgen/scert/globalsetting/update/settings
+                icon: icon-cogs
+            side-menu-item2:
+                label: Slider
+                url: netgen/scert/slider
+                icon: icon-slideshare
+            side-menu-item3:
+                label: Scholarship
+                url: netgen/scert/scholarship
+                icon: icon-money
+            side-menu-item6:
+                label: 'Scholarship Examination Types'
+                url: netgen/scert/category
+                icon: icon-align-justify
+            side-menu-item5:
+                label: Announcements
+                url: netgen/scert/scholarshipexamination
+                icon: icon-bullhorn
+permissions:
+    Manage_SCERT:
+        tab: SCERT
+        label: 'Manage SCERT'

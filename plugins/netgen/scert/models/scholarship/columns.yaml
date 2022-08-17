@@ -1,0 +1,15 @@
+columns:
+    title:
+        label: Title
+        type: text
+    description:
+        label: Description
+        type: text
+    image:
+        label: Image
+        type: image
+        height: '100'
+        width: '250'
+    sort_order:
+        label: Order
+        type: number

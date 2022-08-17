@@ -1,0 +1,192 @@
+title = "Scholarship Form"
+url = "/scholarship-form"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "login"
+
+[examinationform]
+==
+{% component 'session' %}
+<div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
+        <form
+        data-request="onSave"
+        data-request-validate
+        data-request-flash class="fadeInRight" id="examForm">
+        {% flash %}
+            <p
+                data-control="flash-message"
+                class="flash-message fade {{ type }}"
+                data-interval="5">
+                {{ message }}
+            </p>
+        {% endflash %}
+        {{ form_token() }}
+        <div class="form-group label-floating">
+            <label  for="name">Name</label> 
+            <input class="form-control" id="name" type="text" name="name" required="" data-error="Please enter your name" value="{{ form_value('name') }}">
+            <span data-validate-for="name" class="text-danger"></span>
+        </div>
+        {% if examinationform.examinationList %}
+        <div class="form-group label-floating">
+            <label for="correct_answer">Scholarship Examination Type</label>
+            <select class="form-control" id="id" name="examination_id">
+                <option value="">Select Scholarship examination type</option>
+                <option>NTSE</option>
+                <option>NMMS</option>
+                <option>SJMMSE</option>
+                {# {% for examination in examinationform.examinationList %}
+                    <option value="{{ examination.id }}">{{ examination.name }}</option>
+                {% endfor %} #}
+            </select>
+            <span data-validate-for="examination_id" class="text-danger">The examination name field is required.</span>
+        </div>
+        {% else %}
+            <div class="alert alert-primary col-md-6" role="alert">
+                <strong>There is no scholarship examination type to choose</strong>
+            </div>
+        {% endif %}
+        {% if examinationform.districtList %}
+        <div class="form-group label-floating">
+            <label for="correct_answer">School District</label>
+            <select class="form-control" id="district" name="district_id">
+                <option value="">Select District Name</option>
+                <option>Shimla</option>
+                <option>Kangra</option>
+                <option>Mandi</option>
+                {# {% for district in examinationform.districtList %}
+                    <option value="{{ district.id }}">{{ district.district }}</option>
+                {% endfor %} #}
+            </select>
+            <span data-validate-for="district_id" class="text-danger"> The District name field is required.</span>
+        </div>
+        {% else %}
+            <div class="alert alert-primary col-md-6" role="alert">
+                <strong>There is no District to choose</strong>
+            </div>
+        {% endif %}
+        {% if examinationform.schoolList %}
+        <div class="form-group label-floating">
+            <label for="correct_answer">School Name</label>
+            <select class="form-control" id="school" name="school_id">
+                <option value="">Select School Name</option>
+                <option>Shimla</option>
+                {# {% for school in examinationform.schoolList %}
+                    <option value="{{ school.id }}">{{ school.name }}</option>
+                {% endfor %} #}
+            </select>
+            <span data-validate-for="school_id" class="text-danger"> The school name field is required.</span>
+            {# <div class="help-block with-errors">
+                <br>
+            </div> #}
+        </div>
+        {% else %}
+            <div class="alert alert-primary col-md-6" role="alert">
+                <strong>There is no School to choose</strong>
+            </div>
+        {% endif %}
+
+       
+        <div class="form-group label-floating">
+            <label for="correct_answer">Medium of Examination</label>
+            <select class="form-control" id="medium_of_examination" name="medium_of_examination">
+                <option value="">Select Medium of examination</option>
+                <option value="english">English</option>
+                <option value="hindi">Hindi</option>
+            </select>
+            <span data-validate-for="medium_of_examination" class="text-danger"></span>
+        </div>
+        <div class="form-group label-floating">
+            <label  for="email">Email</label> 
+            <input class="form-control" id="name" type="email" name="email" required="" data-error="Please enter your name" value="{{ form_value('name') }}">
+            <span data-validate-for="email" class="text-danger"></span>
+        </div>
+        <div class="form-group label-floating">
+            <label  for="roll_number">School Roll Number</label> 
+            <input class="form-control" id="roll_number" type="text" name="roll_number" required="" data-error="Please enter your Roll Number" value="{{ form_value('roll_number') }}">
+            <span data-validate-for="roll_number" class="text-danger"></span>
+        </div>
+        <div class="form-group label-floating">
+            <label >Father's Name</label> 
+            <input class="form-control" id="father_name" type="text" name="father_name" required="" data-error="Please enter your Father Name" value="{{ form_value('father_name') }}">
+            <span data-validate-for="father_name" class="text-danger"></span>
+        </div>
+        <div class="form-group label-floating">
+            <label >Mother's Name</label> 
+            <input class="form-control" id="mother_name" type="text" name="mother_name" required="" data-error="Please enter your Father Name" value="{{ form_value('mother_name') }}">
+            <span data-validate-for="mother_name" class="text-danger"></span>
+        </div>
+        <div class="form-group label-floating">
+            <label  for="roll_number">Parent Mobile Number</label> 
+            <input class="form-control" id="mobile_number_of_parent" type="number" name="mobile_number_of_parent" required="" data-error="Please enter your parent number" value="{{ form_value('mobile_number_of_parent') }}">
+            <span data-validate-for="mobile_number_of_parent" class="text-danger"></span>
+        </div>
+        <div class="form-group label-floating">
+            <label for="correct_answer">Gender</label>
+            <select class="form-control" id="sex" name="sex">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <span data-validate-for="sex" class="text-danger"></span>
+        </div>
+
+        <div class="form-group label-floating">
+            <label  for="roll_number">Upload Image</label> 
+            <input class="form-control" id="file" type="file" name="file" required="" data-error="Upload Your Profile Here" value="file">
+            <span data-validate-for="file" class="text-danger"></span>
+        </div>
+        
+          
+        <div class="form-submit mt-4">
+            <button data-attach-loading class="header-buttons" id="form-submit" type="submit"><span><i class="material-icons mdi mdi-message-outline"></i> Submit</span></button>
+            <div class="h3 text-center hidden" id="msgSubmit">
+                <br>
+            </div>
+            <div class="clearfix">
+                <br>
+            </div>
+        </div>
+ 
+    </form>
+</div>
+
+{# {% put scripts %}
+<script src="{{ [
+    'assets/js/jquery.min.js',
+    'assets/js/jquery.dataTables.min.js',
+] |theme }}">
+
+</script>
+
+
+<script type="text/javascript">
+    //$(function () {
+      //   jQuery('#district').change(function(){
+        //    let districtID = jQuery(this).val();
+          //  jQuery.ajax({
+                url:'getSchool',
+                type:'get',
+                data:'districtID='+districtID,
+            //    success:function(result){
+              //      jQuery('#school').html(result)
+                }
+            });
+        });
+    });
+
+
+</script>
+{% endput %} #}
+
+
+{% put scripts %}
+<script>
+    $('#examForm').on('ajaxSuccess', function() {
+        $('#examForm').trigger('reset');
+    });
+</script>
+{% endput %}

@@ -1,0 +1,17 @@
+fields:
+    district:
+        label: District
+        span: auto
+        nameFrom: district
+        descriptionFrom: description
+        type: relation
+    name:
+        label: Name
+        span: auto
+        type: text
+        tab: School
+    udise_code:
+        label: 'UDISE Code'
+        span: auto
+        type: text
+        tab: School

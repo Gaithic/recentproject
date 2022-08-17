@@ -1,0 +1,105 @@
+{% flash %}
+<p
+    data-control="flash-message"
+    class="flash-message fade {{ type }}"
+    data-interval="5">
+    {{ message }}
+</p>
+{% endflash %}
+
+
+    <div class="form-group">
+        <label for="userSigninLogin">Email/Phone</label>
+        <input
+            name="mobile"
+            type="text"
+            class="form-control"
+            id="mobile"
+            placeholder="Enter your Email/Phone" />
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="sendOtp">Send OTP</button>
+
+    <div class="form-group">
+        <label for="userSigninPassword">OTP</label>
+        <input
+            name="otp"
+            type="number"
+            class="form-control"
+            id="otp"
+            placeholder="Enter your OTP" />
+    </div>
+
+
+    <button type="submit" class="btn btn-primary" id="verifyOtp">Verify OTP</button>
+
+   {# <div class="form-group">
+    {% component 'sitecaptcha' %}
+  </div>
+
+  <div class="form-group">
+    <label for="pwd">Captcha:</label>
+    <input class="form-control" type="text" name="captcha"/>
+  </div> #}
+
+    {% if rememberLoginMode == 'ask' %}
+    <div class="form-group">
+        <div class="checkbox">
+        <label><input name="remember" type="checkbox" value="1">Stay logged in</label>
+        </div>
+    </div>
+    {% endif %}
+
+    <button type="submit" class="btn btn-success">Sign in</button>
+    {# <p class="small fw-bold mt-2 pt-1 mb-0"><a href="/reset-password"
+                class="link-danger">Forgot Your Password?</a></p> #}
+    <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/user-register"
+                class="link-danger">Register</a></p>
+
+
+
+<Script>
+    $(document).ready(function(){
+        $('#verifyOtp').hide();
+        $('#sendOtp').on('click', function(){
+            var mobile = $('#mobile').val();
+            var email = $('#email').val();
+            console.log(mobile);
+            $.ajax({
+                url:"/generate-login-otp",
+                data: {
+                    mobile: mobile,
+                    email: email
+                },
+                success:function(data){
+                    $('#sendOtp').hide();
+                    $('#verifyOtp').show();
+                    
+                }
+            })
+           
+        })
+
+        $('#verifyOtp').on('click', function(){
+            var mobile = $('#mobile').val();
+            var otp = $('#otp').val();
+            $.ajax({
+                url:"/verify-otp",
+                data: {
+                    mobile: mobile,
+                    otp: otp
+                },
+                success:function(data){
+                    $('#error').append('<p>'+data.msg+'</p>');
+                    if(data.msg == "Otp Verified."){
+                       location.href = '{{ url('user-dashboard') }}';
+                    }else{
+                        location.href = '{{ url('user-login') }}';
+                    }
+                }
+            })
+           
+        })
+
+    })
+</Script>

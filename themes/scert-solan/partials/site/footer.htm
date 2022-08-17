@@ -1,0 +1,61 @@
+[viewBag]
+
+[staticMenu]
+code = "footer"
+==
+<div class="footer-menu">
+	{% if staticMenu.menuItems %}
+		<nav class="navbar navbar-expand-sm bg-light justify-content-center">
+			<ul class="navbar-nav footer-nav">
+				{% for item in staticMenu.menuItems %}
+					<li class="nav-item "><a class="nav-link " {% if item.viewBag.isExternal %} target="_blank" {% endif %} href="{{ item.url }}" >{{ item.title }} </a></li>
+				{% endfor %}
+			</ul>
+		</nav>
+	{% endif %}
+</div>
+<!-- ...........footer-menu ends -->
+<!-- .........main-footer starts -->
+<div class="main-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<span><i class="fa fa-map-marker" aria-hidden="true"></i> {{ configs.address|raw }}</span>
+			</div>
+			<div class="col-lg-4">
+				<a href="mailto:{{ configs.email }}"><span><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ configs.email }}</span></a>
+			</div>
+			<div class="col-lg-4">
+				<a href="tel:{{ configs.phone_number }}"><span><i class="fa fa-phone" aria-hidden="true"></i> {{ configs.phone_number }}</span></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<p>{{ configs.disclaimer|raw }}</p>
+			</div>
+		</div>
+	</div>
+	<!-- ..............main-footer-ends -->
+	<!-- .............copyright starts  -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="copyright">
+					<h6>{{ configs.copy_right|raw }}</h6>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("navbar").style.padding = "3px 10px";
+        document.getElementById("logo").style.fontSize = "25px";
+      } else {
+        document.getElementById("navbar").style.padding = "6px 10px";
+        document.getElementById("logo").style.fontSize = "35px";
+      }
+    }
+</script>

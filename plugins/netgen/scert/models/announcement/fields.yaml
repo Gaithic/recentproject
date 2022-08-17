@@ -1,0 +1,38 @@
+fields:
+    title:
+        label: Title
+        span: full
+        type: text
+    edit_slug:
+        label: 'Edit Slug'
+        span: auto
+        context:
+            - update
+            - preview
+        type: switch
+    slug:
+        label: Slug
+        span: full
+        trigger:
+            action: show
+            field: edit_slug
+            condition: checked
+        preset:
+            field: title
+            type: slug
+        type: text
+    date:
+        label: 'Date picker'
+        mode: date
+        span: auto
+        type: datepicker
+    file:
+        label: File
+        mode: file
+        span: auto
+        type: mediafinder
+    description:
+        label: Description
+        size: huge
+        span: full
+        type: richeditor

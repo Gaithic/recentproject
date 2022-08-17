@@ -1,0 +1,192 @@
+<div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s"></div>
+
+    {% flash %}
+    <p
+        data-control="flash-message"
+        class="flash-message fade {{ type }}"
+        data-interval="5">
+        {{ message }}
+    </p>
+    {% endflash %}
+        
+        {# {{ form_ajax('onRegisteUser') }} #}
+
+            <div class="form-group">
+                <label for="registerName">Full Name</label>
+                <input
+                    name="name"
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Enter your full name" />
+            </div>
+
+            <div class="form-group">
+                <label for="registerPassword">Father Name</label>
+                <input
+                    name="fathername"
+                    type="text"
+                    class="form-control"
+                    id="fathername"
+                    placeholder="Enter Your Father Name" />
+            </div>
+
+            <div class="form-group">
+                <label for="registerPassword">Mother Name</label>
+                <input
+                    name="mothername"
+                    type="text"
+                    class="form-control"
+                    id="mothername"
+                    placeholder="Enter Your Mother Name" />
+            </div>
+
+            <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <input
+                    name="email"
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter your email" />
+            </div>
+
+            <div id="emailError" ></div>
+
+            <div class="form-group">
+                <label for="registerEmail">Gender</label>
+                <select
+                    name="gender"
+                    type="type"
+                    class="form-control"
+                    id="gender"
+                    placeholder="Enter your email" >
+                <option value="">Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="others">Other</option>
+            </select>
+            </div>
+
+                    
+            <div class="form-group">
+                <label for="registerPassword">Mobile</label>
+                <input
+                    name="mobile"
+                    type="text"
+                    class="form-control"
+                    id="mobile"
+                    placeholder="Enter Your Contact Number.." />
+            </div>
+
+            <div id="phoneError" ></div>
+
+            <button type="submit" class="btn btn-primary" id="sendOtp">Send OTP</button>
+
+            <div class="form-group" id="otpLabel">
+                <label for="registerEmail">OTP</label>
+                <input
+                    name="otp"
+                    type="number"
+                    class="form-control"
+                    id="otp"
+                    placeholder="Enter your OTP" />
+            </div>
+            
+            <div id="error"></div>
+
+            <button type="submit" class="btn btn-primary" id="verifyOtp">Verify OTP</button>
+            
+</div?>
+
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        
+    });
+    $(document).ready(function(){
+        $('#verifyOtp').hide();
+        $('#emailError').hide();
+        $('#phoneError').hide();
+        $('#otpLabel').hide();
+        $('#sendOtp').on('click', function(){
+            var mobile = $('#mobile').val();
+            var email = $('#email').val();
+            var name = $('#name').val();
+            var fathername = $('#fathername').val();
+            var mothername = $('#mothername').val();
+            var otp = $('#otp').val();
+            var gender = $('#gender').val();
+            console.log(mobile);
+            $.ajax({
+                url:"/generate-otp",
+                data: {
+                email: email,
+                mobile:mobile,
+                otp:otp,
+                    
+                },
+                success:function(data){
+                    if(data.success == 'emailError'){
+                        $('#emailError').show();
+                        $('#phoneError').show();
+                        $('#emailError').append('<p class="text-danger">'+data.check+'</p>');
+                    }else{
+                        if(data.success == 'phoneError'){
+                            $('#emailError').hide();
+                            $('#phoneError').show();
+                            $('#phoneError').append('<p class="text-danger">'+data.phoneError+'</p>');
+                        }else{
+                            $('#emailError').hide();
+                            $('#phoneError').hide();
+                            $('#otpLabel').show();
+                            $('#sendOtp').hide();
+                            $('#verifyOtp').show();
+                        }
+                        
+                    }
+                }
+            })
+           
+        })
+
+        $('#verifyOtp').on('click', function(){
+            var mobile = $('#mobile').val();
+            var email = $('#email').val();
+            var name = $('#name').val();
+            var fathername = $('#fathername').val();
+            var mothername = $('#mothername').val();
+            var otp = $('#otp').val();
+            var gender = $('#gender').val();
+            $.ajax({
+                url:"/save-register-user",
+                data: {
+                    mobile: mobile,
+                    otp: otp,
+                    name: name,
+                    fathername: fathername,
+                    mothername: mothername,
+                    email: email,
+                },
+                success:function(data){
+                    $('#error').append('<p>'+data.msg+'</p>');
+                    if(data.msg=="Otp Verified."){
+                       location.href = '{{ url('user-dashboard') }}';
+                    }else{
+                      location.href = '{{ url('user-register') }}';
+                    }
+                    
+                }
+            })
+           
+        })
+    })
+
+    
+
+
+
+</script>
+

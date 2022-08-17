@@ -1,0 +1,4 @@
+1.0.1:
+    - Initialize plugin.
+    - add_user_fields.php
+    - add_otp_fields.php
